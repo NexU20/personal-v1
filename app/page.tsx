@@ -76,23 +76,23 @@ const projects = [
 const skills = [
   {
     name: "React",
-    image: "react.PNG",
+    image: "react.png",
   },
   {
     name: "Node.Js",
-    image: "node.PNG",
+    image: "node.png",
   },
   {
     name: "Next.Js",
-    image: "next1.PNG",
+    image: "next1.png",
   },
   {
     name: "Tailwindcss",
-    image: "tailwind.PNG",
+    image: "tailwind.png",
   },
   {
     name: "MySQL",
-    image: "mysql.PNG",
+    image: "mysql.png",
   },
 ];
 
