@@ -58,6 +58,14 @@ const projects = [
     link: "https://github.com/NexU20/AmaTI/tree/amati-withbackend",
   },
   {
+    name: "Reaksi",
+    description:
+      "Reaksi is a JavaScript library inspired by React, designed to help me for learning React more easily. Currently, Reaksi supports the state hook for efficiently managing state within components.",
+    image: "reaksi.PNG",
+    tools: ["javascript", "nodejs"],
+    link: "https://github.com/NexU20/reaksi/",
+  },
+  {
     name: "Portofolio",
     description: "My first personal Website using Next.Js",
     image: "porto.PNG",
