@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import Glowing from "./components/Glowing";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased bg-slate-900 selection:bg-teal-300 selection:text-teal-900 leading-relaxed`}
       >
+        <Analytics />
         <Glowing />
         <section>{children}</section>
         <Toaster />
