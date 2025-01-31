@@ -79,6 +79,14 @@ const projects = [
     tools: ["react", "nextjs", "socket.io"],
     link: "https://github.com/NexU20/NobarYT/",
   },
+  {
+    name: "Notion - Clone",
+    description:
+      "Notion clone with Next.Js and Tailwindcss. For learning purpose",
+    image: "notion.PNG",
+    tools: ["react", "nextjs", "tailwindcss", "clerk", "MongoDB"],
+    link: "https://notion-lndn-lake.vercel.app",
+  },
 ];
 
 const skills = [
