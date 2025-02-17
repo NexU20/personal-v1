@@ -7,23 +7,24 @@ export default function SectionNav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const about = document.getElementById("about");
-      const projects = document.getElementById("projects");
-      const skill = document.getElementById("skill");
-      const scrollY = window.scrollY;
+      const sections = ["about", "projects", "skill"];
+      let currentSection = "about";
 
-      console.log(scrollY);
+      sections.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) {
+          const { top } = section.getBoundingClientRect();
+          if (top <= 0) {
+            currentSection = id;
+          }
+        }
+      });
 
-      if (about && scrollY < about.offsetTop + 400) {
-        setActive("about");
-      } else if (projects && scrollY < projects.offsetTop + 400) {
-        setActive("projects");
-      } else if (skill && scrollY < skill.offsetTop + 400) {
-        setActive("skill");
-      }
+      setActive(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Panggil langsung agar state sesuai posisi awal
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

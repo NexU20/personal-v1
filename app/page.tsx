@@ -22,7 +22,7 @@ const links = [
     ),
   },
   {
-    url: "https://www.instagram.com",
+    url: "https://www.instagram.com/lndn_af",
     icon: (
       <InstagramIcon
         className="text-slate-400 hover:text-slate-100 transition-colors"
@@ -31,7 +31,7 @@ const links = [
     ),
   },
   {
-    url: "https://www.linkedin.com",
+    url: "https://www.linkedin.com/in/lindan-akbar-5b31b4223",
     icon: (
       <Linkedin
         size={24}
