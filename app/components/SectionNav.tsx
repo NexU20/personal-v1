@@ -7,7 +7,7 @@ export default function SectionNav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "projects", "skill"];
+      const sections = ["about", "projects", "blogs", "skill"];
       let currentSection = "about";
 
       sections.forEach((id) => {
@@ -33,6 +33,7 @@ export default function SectionNav() {
     <div className="lg:flex flex-col gap-y-2 hidden flex-1">
       <Nav section="About" active={active === "about"} />
       <Nav section="Projects" active={active === "projects"} />
+      <Nav section="Blogs" active={active === "blogs"} />
       <Nav section="Skill & Interest" active={active === "skill"} />
     </div>
   );

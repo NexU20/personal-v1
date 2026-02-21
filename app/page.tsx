@@ -1,6 +1,7 @@
 import { GithubIcon, InstagramIcon, Linkedin } from "lucide-react";
 import Link from "next/link";
 import ProjectShow from "./components/ProjectShow";
+import BlogShow from "./components/BlogShow";
 import SectionNav from "./components/SectionNav";
 import { ArrowUpRight } from "lucide-react";
 import {
@@ -38,7 +39,7 @@ const links = [
         className="text-slate-400 hover:text-slate-100 transition-colors"
       />
     ),
-  },
+  }
 ];
 
 const projects = [
@@ -89,6 +90,44 @@ const projects = [
   },
 ];
 
+const blogs = [
+  {
+    title: "Getting Started with Capture The Flag (CTF)",
+    summary:
+      "A beginner-friendly guide to starting your CTF journey, covering the essential categories like web exploitation, reverse engineering, and cryptography.",
+    date: "2026-02-15",
+    slug: "getting-started-with-ctf",
+  },
+  {
+    title: "Understanding XSS: From Basics to Advanced Exploitation",
+    summary:
+      "Deep dive into Cross-Site Scripting vulnerabilities — how they work, different types (reflected, stored, DOM-based), and how to prevent them.",
+    date: "2026-02-01",
+    slug: "understanding-xss",
+  },
+  {
+    title: "Building Performant React Apps with Next.js",
+    summary:
+      "Tips and tricks for optimizing your Next.js applications, including server components, dynamic imports, and effective caching strategies.",
+    date: "2026-01-20",
+    slug: "performant-react-nextjs",
+  },
+  {
+    title: "My First CTF Competition: Lessons Learned",
+    summary:
+      "Reflecting on my experience in my first CTF competition — what went right, what went wrong, and the key takeaways for future competitions.",
+    date: "2026-01-10",
+    slug: "first-ctf-competition",
+  },
+  {
+    title: "Web Penetration Testing Methodology",
+    summary:
+      "A structured approach to web application penetration testing, covering reconnaissance, vulnerability identification, and exploitation techniques.",
+    date: "2025-12-28",
+    slug: "web-pentest-methodology",
+  },
+];
+
 const skills = [
   {
     name: "React",
@@ -118,7 +157,7 @@ export default function Home() {
       <header className="px-6 md:px-12 md:py-16 lg:py-24 py-12 lg:sticky lg:top-0 lg:h-lvh lg:flex lg:flex-col lg:gap-y-12">
         <div>
           <h1 className="font-extrabold text-4xl md:text-5xl">Lindan Akbar</h1>
-          <h2 className="mt-1 md:text-lg">Junior Front End Engineer</h2>
+          <h2 className="mt-1 md:text-lg">Junior Front End Engineer and CTF Player</h2>
           <p className="text-slate-400 leading-relaxed mt-4 max-w-96">
             I craft seamless, pixel-perfect digital experiences that bring
             accessibility and innovation to the web.
@@ -161,8 +200,19 @@ export default function Home() {
               designs, ensuring a flawless, pixel-perfect experience.
             </p>
             <p>
-              In my spare time, I enjoy exploring and deepening my knowledge,
-              indulging in gaming, and watching films.
+              Beyond web development, I have a strong interest in{" "}
+              <span className="font-bold">cyber security</span> and actively
+              participate as a{" "}
+              <a
+                href="https://ctftime.org/user/246529"
+                target="_blank"
+                className="text-white hover:text-teal-300 transition-colors"
+              >
+                CTF (Capture The Flag)
+              </a>{" "}
+              player, sharpening my skills in web penetration testing and
+              security challenges. In my spare time, I enjoy exploring and
+              deepening my knowledge, indulging in gaming, and watching films.
             </p>
           </div>
           <Link
@@ -195,6 +245,34 @@ export default function Home() {
               </li>
             ))}
           </ul>
+        </NewSection>
+        <NewSection id="blogs">
+          <SectionHeader>Blog</SectionHeader>
+          <ul className="text-slate-400 mt-4 flex flex-col gap-y-12 lg:gap-y-2 group/list">
+            {blogs.slice(0, 5).map((blog, i) => (
+              <li
+                key={i}
+                className="lg:group-hover/list:opacity-50 transition-opacity lg:hover:!opacity-100"
+              >
+                <BlogShow
+                  title={blog.title}
+                  summary={blog.summary}
+                  date={blog.date}
+                  slug={blog.slug}
+                />
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/blogs"
+            className="mt-6 font-semibold inline-flex items-end gap-x-2 group/blog hover:text-teal-300 transition-colors"
+          >
+            View All Posts
+            <ArrowUpRight
+              size={16}
+              className="group-hover/blog:translate-x-1 group-hover/blog:-translate-y-2 transition-transform"
+            />
+          </Link>
         </NewSection>
         <NewSection id="skill">
           <SectionHeader>Skill & Interest</SectionHeader>

@@ -110,3 +110,31 @@ html {
     }
   }
 }
+
+.project-glow-border {
+  position: relative;
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-opacity: 0;
+}
+
+.project-glow-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.375rem;
+  padding: 1px;
+  background: radial-gradient(
+    400px circle at var(--glow-x) var(--glow-y),
+    rgba(242, 245, 244, 0.4),
+    transparent 30%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: var(--glow-opacity);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}

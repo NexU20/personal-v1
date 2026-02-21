@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { ToolBadge } from "./ToolBadge";
 import Image from "next/image";
 import Link from "next/link";
+import GlowCard from "./GlowCard";
 
 export default function ProjectShow({
   name,
@@ -17,7 +18,7 @@ export default function ProjectShow({
   link: string;
 }) {
   return (
-    <div className="projects flex flex-col lg:-translate-x-4 lg:cursor-pointer lg:group/item sm:flex-row gap-4 transition-color transition-opacity lg:hover:bg-blue-300 lg:py-5 rounded-md lg:px-4 hover:backdrop-blur-3xl lg:hover:bg-opacity-10">
+    <GlowCard className="projects flex flex-col lg:-translate-x-4 lg:cursor-pointer lg:group/item sm:flex-row gap-4 transition-color transition-opacity lg:hover:bg-blue-300 lg:py-5 rounded-md lg:px-4 hover:backdrop-blur-3xl lg:hover:bg-opacity-10">
       <div className="project-main sm:order-2 sm:flex-1">
         <Link
           href={link}
@@ -27,7 +28,7 @@ export default function ProjectShow({
           <h3>{name}</h3>
           <ArrowUpRight
             size={16}
-            className="group-hover/item:-translate-y-2 group-hover/item:translate-x-1 transition-transform"
+            className="shrink-0 group-hover/item:-translate-y-2 group-hover/item:translate-x-1 transition-transform"
           />
         </Link>
         <div className="mt-2 text-sm">
@@ -52,6 +53,6 @@ export default function ProjectShow({
           />
         </div>
       )}
-    </div>
+    </GlowCard>
   );
 }
