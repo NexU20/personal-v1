@@ -6,34 +6,34 @@ export default function SectionNav() {
   const [active, setActive] = useState("about");
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["about", "projects", "blogs", "skill"];
-      let currentSection = "about";
-
-      sections.forEach((id) => {
-        const section = document.getElementById(id);
-        if (section) {
-          const { top } = section.getBoundingClientRect();
-          if (top <= 0) {
-            currentSection = id;
+    const sections = ["about", "projects", "skill"];
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
           }
-        }
-      });
+        });
+      },
+      {
+        rootMargin: "-30% 0px -70% 0px",
+      }
+    );
 
-      setActive(currentSection);
-    };
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Panggil langsung agar state sesuai posisi awal
-
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => observer.disconnect();
   }, []);
 
   return (
     <div className="lg:flex flex-col gap-y-2 hidden flex-1">
       <Nav section="About" active={active === "about"} />
       <Nav section="Projects" active={active === "projects"} />
-      <Nav section="Blogs" active={active === "blogs"} />
+      {/* <Nav section="Blogs" active={active === "blogs"} /> */}
       <Nav section="Skill & Interest" active={active === "skill"} />
     </div>
   );

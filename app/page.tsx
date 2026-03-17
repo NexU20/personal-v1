@@ -11,6 +11,8 @@ import {
   SectionHeader,
 } from "./components/ui/ContentSection";
 import Image from "next/image";
+import { projects } from "./data/projects";
+import { blogs } from "./data/blogs";
 
 const links = [
   {
@@ -42,92 +44,6 @@ const links = [
   }
 ];
 
-const projects = [
-  {
-    name: "Twitter Clone",
-    description: "Twitter clone with Next.Js and Firebase, just for fun ",
-    image: "twitter.PNG",
-    tools: ["react", "nextjs", "firebase"],
-    link: "https://github.com/NexU20/twitter-clone",
-  },
-  {
-    name: "AmaTI",
-    description:
-      "This application helps parents monitor their children's academic progress in university. Features include real-time access to schedules, attendance, grades, and other academic updates, with a user-friendly and responsive interface. Designed for data accuracy and an optimal user experience.",
-    image: "amati.PNG",
-    tools: ["react", "tailwindcss", "mysql", "nextjs"],
-    link: "https://github.com/NexU20/AmaTI/tree/amati-withbackend",
-  },
-  {
-    name: "Reaksi",
-    description:
-      "Reaksi is a JavaScript library inspired by React, designed to help me for learning React more easily. Currently, Reaksi supports the state hook for efficiently managing state within components.",
-    image: "reaksi.PNG",
-    tools: ["javascript", "nodejs"],
-    link: "https://github.com/NexU20/reaksi/",
-  },
-  {
-    name: "Portofolio",
-    description: "My first personal Website using Next.Js",
-    image: "porto.PNG",
-    tools: ["react", "nextjs", "styled components"],
-    link: "",
-  },
-  {
-    name: "NobarYT",
-    description:
-      "This application allows users to watch YouTube videos together in real-time. Users can create a room and watch videos together. Features include real-time chat and video synchronization.",
-    tools: ["react", "nextjs", "socket.io"],
-    link: "https://github.com/NexU20/NobarYT/",
-  },
-  {
-    name: "Notion - Clone",
-    description:
-      "Notion clone with Next.Js and Tailwindcss. For learning purpose",
-    image: "notion.PNG",
-    tools: ["react", "nextjs", "tailwindcss", "clerk", "MongoDB"],
-    link: "https://notion-lndn-lake.vercel.app",
-  },
-];
-
-const blogs = [
-  {
-    title: "Getting Started with Capture The Flag (CTF)",
-    summary:
-      "A beginner-friendly guide to starting your CTF journey, covering the essential categories like web exploitation, reverse engineering, and cryptography.",
-    date: "2026-02-15",
-    slug: "getting-started-with-ctf",
-  },
-  {
-    title: "Understanding XSS: From Basics to Advanced Exploitation",
-    summary:
-      "Deep dive into Cross-Site Scripting vulnerabilities — how they work, different types (reflected, stored, DOM-based), and how to prevent them.",
-    date: "2026-02-01",
-    slug: "understanding-xss",
-  },
-  {
-    title: "Building Performant React Apps with Next.js",
-    summary:
-      "Tips and tricks for optimizing your Next.js applications, including server components, dynamic imports, and effective caching strategies.",
-    date: "2026-01-20",
-    slug: "performant-react-nextjs",
-  },
-  {
-    title: "My First CTF Competition: Lessons Learned",
-    summary:
-      "Reflecting on my experience in my first CTF competition — what went right, what went wrong, and the key takeaways for future competitions.",
-    date: "2026-01-10",
-    slug: "first-ctf-competition",
-  },
-  {
-    title: "Web Penetration Testing Methodology",
-    summary:
-      "A structured approach to web application penetration testing, covering reconnaissance, vulnerability identification, and exploitation techniques.",
-    date: "2025-12-28",
-    slug: "web-pentest-methodology",
-  },
-];
-
 const skills = [
   {
     name: "React",
@@ -154,17 +70,19 @@ const skills = [
 export default function Home() {
   return (
     <div className="min-h-lvh grid grid-rows-[auto,1fr] lg:grid-cols-2 lg:grid-rows-1 max-w-[1300px] mx-auto">
-      <header className="px-6 md:px-12 md:py-16 lg:py-24 py-12 lg:sticky lg:top-0 lg:h-lvh lg:flex lg:flex-col lg:gap-y-12">
-        <div>
-          <h1 className="font-extrabold text-4xl md:text-5xl">Lindan Akbar</h1>
-          <h2 className="mt-1 md:text-lg">Junior Front End Engineer and CTF Player</h2>
-          <p className="text-slate-400 leading-relaxed mt-4 max-w-96">
-            I craft seamless, pixel-perfect digital experiences that bring
-            accessibility and innovation to the web.
-          </p>
+      <header className="px-6 md:px-12 md:py-16 lg:py-24 py-12 lg:sticky lg:top-0 lg:h-lvh lg:flex lg:flex-col lg:justify-between">
+        <div className="flex flex-col gap-y-12">
+          <div>
+            <h1 className="font-extrabold text-4xl md:text-5xl">Lindan Akbar</h1>
+            <h2 className="mt-1 md:text-lg">Front End Engineer and CTF Player</h2>
+            <p className="text-slate-400 leading-relaxed mt-4 max-w-96">
+              I craft seamless, pixel-perfect digital experiences that bring
+              accessibility and innovation to the web.
+            </p>
+          </div>
+          <SectionNav />
         </div>
-        <SectionNav />
-        <ul className="flex gap-x-5 mt-8">
+        <ul className="flex gap-x-5 mt-8 lg:mt-0">
           {links.map(({ url, icon }) => (
             <li key={url}>
               <Link href={url} target="_blank" draggable={false}>
@@ -246,7 +164,7 @@ export default function Home() {
             ))}
           </ul>
         </NewSection>
-        <NewSection id="blogs">
+        {/* <NewSection id="blogs">
           <SectionHeader>Blog</SectionHeader>
           <ul className="text-slate-400 mt-4 flex flex-col gap-y-12 lg:gap-y-2 group/list">
             {blogs.slice(0, 5).map((blog, i) => (
@@ -273,7 +191,7 @@ export default function Home() {
               className="group-hover/blog:translate-x-1 group-hover/blog:-translate-y-2 transition-transform"
             />
           </Link>
-        </NewSection>
+        </NewSection> */}
         <NewSection id="skill">
           <SectionHeader>Skill & Interest</SectionHeader>
           <div className="max-w-96 text-sm lg:mt-10">
@@ -282,14 +200,17 @@ export default function Home() {
               {skills.map((el, index) => (
                 <li
                   key={index}
-                  className="flex cursor-pointer hover:bg-neutral-400 hover:bg-opacity-30 hover:backdrop-blur-md p-2 items-center justify-center size-16 md:size-20 rounded-sm md:rounded-md opacity-50 hover:opacity-100 transition-opacity group/skill"
+                  className="relative flex cursor-pointer p-2 items-center justify-center size-16 md:size-20 opacity-60 hover:opacity-100 transition-all duration-300 group/skill"
                 >
+                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 lg:px-3 lg:py-1.5 px-2 py-1 bg-slate-800/90 backdrop-blur-md border border-slate-700 text-white text-xs whitespace-nowrap rounded-md opacity-0 translate-y-2 group-hover/skill:opacity-100 group-hover/skill:translate-y-0 transition-all duration-300 pointer-events-none z-10">
+                    {el.name}
+                  </div>
                   <Image
                     src={`/img/${el.image}`}
                     width={100}
                     height={100}
                     alt={`Skill Image ${index + 1}`}
-                    className="object-cover filter grayscale group-hover/skill:grayscale-0 transition-filter"
+                    className="object-cover filter grayscale group-hover/skill:grayscale-0 drop-shadow-[0_0_12px_rgba(255,255,255,0.1)] group-hover/skill:drop-shadow-[0_0_16px_rgba(255,255,255,0.2)] transition-all duration-300"
                   />
                 </li>
               ))}
