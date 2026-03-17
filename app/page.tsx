@@ -1,7 +1,7 @@
 import { GithubIcon, InstagramIcon, Linkedin } from "lucide-react";
 import Link from "next/link";
 import ProjectShow from "./components/ProjectShow";
-import BlogShow from "./components/BlogShow";
+// import BlogShow from "./components/BlogShow";
 import SectionNav from "./components/SectionNav";
 import { ArrowUpRight } from "lucide-react";
 import {
@@ -12,7 +12,7 @@ import {
 } from "./components/ui/ContentSection";
 import Image from "next/image";
 import { projects } from "./data/projects";
-import { blogs } from "./data/blogs";
+// import { blogs } from "./data/blogs";
 
 const links = [
   {
