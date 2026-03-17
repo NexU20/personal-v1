@@ -13,9 +13,35 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lindan Akbar",
+  title: "Lindan Akbar | Junior Front End Engineer",
   description:
-    "Lindan is a Frontend Engineer based in Indonesia. He loves to explore new technologies and share his knowledge with others.",
+    "Lindan Akbar is a Frontend Engineer and CTF Player based in Indonesia. Check out my seamless, pixel-perfect digital experiences and security insights.",
+  keywords: [
+    "Lindan",
+    "Lindan Akbar",
+    "BocahanCiledug",
+    "Lndn",
+    "Frontend Engineer",
+    "Web Developer",
+    "React Developer",
+    "Next.js Developer",
+    "CTF Player",
+    "Cyber Security",
+    "Penetration Testing"
+  ],
+  openGraph: {
+    title: "Lindan Akbar | Front End Engineer & CTF Player",
+    description: "I craft seamless, pixel-perfect digital experiences that bring accessibility and innovation to the web.",
+    url: "https://lindan.vercel.app",
+    siteName: "Lindan Akbar Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lindan Akbar | Front End Engineer & CTF Player",
+    description: "I craft seamless, pixel-perfect digital experiences.",
+  },
 };
 
 export default function RootLayout({
