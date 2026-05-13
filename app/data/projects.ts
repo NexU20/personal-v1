@@ -1,7 +1,7 @@
 export const projects = [
   {
     name: "Twitter Clone",
-    description: "Twitter clone with Next.Js and Firebase, just for fun ",
+    description: "Twitter clone built with Next.js and Firebase for learning real-time social app patterns.",
     image: "twitter.PNG",
     tools: ["react", "nextjs", "firebase"],
     link: "https://github.com/NexU20/twitter-clone",
@@ -17,14 +17,14 @@ export const projects = [
   {
     name: "Reaksi",
     description:
-      "Reaksi is a JavaScript library inspired by React, designed to help me for learning React more easily. Currently, Reaksi supports the state hook for efficiently managing state within components.",
+      "Reaksi is a JavaScript library inspired by React, designed to help me learn React internals more easily. Currently, Reaksi supports a state hook for managing component state.",
     image: "reaksi.PNG",
     tools: ["javascript", "nodejs"],
     link: "https://github.com/NexU20/reaksi/",
   },
   {
-    name: "Portofolio",
-    description: "My first personal Website using Next.Js",
+    name: "Portfolio",
+    description: "My first personal website built with Next.js.",
     image: "porto.PNG",
     tools: ["react", "nextjs", "styled components"],
     link: "",
@@ -39,7 +39,7 @@ export const projects = [
   {
     name: "Notion - Clone",
     description:
-      "Notion clone with Next.Js and Tailwindcss. For learning purpose",
+      "Notion clone built with Next.js and Tailwind CSS for learning full-stack product interfaces.",
     image: "notion.PNG",
     tools: ["react", "nextjs", "tailwindcss", "clerk", "MongoDB"],
     link: "https://notion-lndn-lake.vercel.app",

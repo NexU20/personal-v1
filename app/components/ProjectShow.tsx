@@ -17,20 +17,28 @@ export default function ProjectShow({
   tools?: string[];
   link: string;
 }) {
+  const isExternal = link.startsWith("http");
+
   return (
     <GlowCard className="projects flex flex-col lg:-translate-x-4 lg:cursor-pointer lg:group/item sm:flex-row gap-4 transition-color transition-opacity lg:hover:bg-blue-300 lg:py-5 rounded-md lg:px-4 hover:backdrop-blur-3xl lg:hover:bg-opacity-10">
       <div className="project-main sm:order-2 sm:flex-1">
-        <Link
-          href={link}
-          target="_blank"
-          className="flex items-end gap-x-1 text-white group/item cursor-pointer hover:text-teal-300 transition-colors w-fit"
-        >
-          <h3>{name}</h3>
-          <ArrowUpRight
-            size={16}
-            className="shrink-0 group-hover/item:-translate-y-2 group-hover/item:translate-x-1 transition-transform"
-          />
-        </Link>
+        {link ? (
+          <Link
+            href={link}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            aria-label={`Open ${name} project`}
+            className="flex items-end gap-x-1 text-white group/item cursor-pointer hover:text-teal-300 transition-colors w-fit"
+          >
+            <h3>{name}</h3>
+            <ArrowUpRight
+              size={16}
+              className="shrink-0 group-hover/item:-translate-y-2 group-hover/item:translate-x-1 transition-transform"
+            />
+          </Link>
+        ) : (
+          <h3 className="text-white">{name}</h3>
+        )}
         <div className="mt-2 text-sm">
           <p>{description}</p>
         </div>

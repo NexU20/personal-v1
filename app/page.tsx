@@ -1,7 +1,7 @@
 import { GithubIcon, InstagramIcon, Linkedin } from "lucide-react";
 import Link from "next/link";
 import ProjectShow from "./components/ProjectShow";
-// import BlogShow from "./components/BlogShow";
+import BlogShow from "./components/BlogShow";
 import SectionNav from "./components/SectionNav";
 import { ArrowUpRight } from "lucide-react";
 import {
@@ -12,11 +12,13 @@ import {
 } from "./components/ui/ContentSection";
 import Image from "next/image";
 import { projects } from "./data/projects";
-// import { blogs } from "./data/blogs";
+import { absoluteUrl, siteConfig } from "@/lib/seo";
+import { blogs } from "./data/blogs";
 
 const links = [
   {
-    url: "https://github.com/NexU20",
+    url: siteConfig.links.github,
+    label: "GitHub profile",
     icon: (
       <GithubIcon
         className="text-slate-400 hover:text-slate-100 transition-colors"
@@ -25,7 +27,8 @@ const links = [
     ),
   },
   {
-    url: "https://www.instagram.com/lndn_af",
+    url: siteConfig.links.instagram,
+    label: "Instagram profile",
     icon: (
       <InstagramIcon
         className="text-slate-400 hover:text-slate-100 transition-colors"
@@ -34,7 +37,8 @@ const links = [
     ),
   },
   {
-    url: "https://www.linkedin.com/in/lindan-akbar-5b31b4223",
+    url: siteConfig.links.linkedin,
+    label: "LinkedIn profile",
     icon: (
       <Linkedin
         size={24}
@@ -68,8 +72,59 @@ const skills = [
 ];
 
 export default function Home() {
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      name: siteConfig.title,
+      url: siteConfig.url,
+      description: siteConfig.description,
+      inLanguage: "en-US",
+      mainEntity: {
+        "@type": "Person",
+        name: siteConfig.author,
+        url: siteConfig.url,
+        email: `mailto:${siteConfig.email}`,
+        jobTitle: "Front End Engineer",
+        sameAs: Object.values(siteConfig.links),
+        knowsAbout: [
+          "React",
+          "Next.js",
+          "Tailwind CSS",
+          "Frontend Engineering",
+          "Cyber Security",
+          "Web Penetration Testing",
+          "Capture The Flag",
+        ],
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Selected projects by Lindan Akbar",
+      itemListElement: projects.map((project, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "CreativeWork",
+          name: project.name,
+          description: project.description,
+          url: project.link || absoluteUrl("/"),
+          keywords: project.tools?.join(", "),
+        },
+      })),
+    },
+  ];
+
   return (
-    <div className="min-h-lvh grid grid-rows-[auto,1fr] lg:grid-cols-2 lg:grid-rows-1 max-w-[1300px] mx-auto">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <div className="min-h-lvh grid grid-rows-[auto,1fr] lg:grid-cols-2 lg:grid-rows-1 max-w-[1300px] mx-auto">
       <header className="px-6 md:px-12 md:py-16 lg:py-24 py-12 lg:sticky lg:top-0 lg:h-lvh lg:flex lg:flex-col lg:justify-between">
         <div className="flex flex-col gap-y-12">
           <div>
@@ -83,9 +138,15 @@ export default function Home() {
           <SectionNav />
         </div>
         <ul className="flex gap-x-5 mt-8 lg:mt-0">
-          {links.map(({ url, icon }) => (
+          {links.map(({ url, label, icon }) => (
             <li key={url}>
-              <Link href={url} target="_blank" draggable={false}>
+              <Link
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                draggable={false}
+                aria-label={label}
+              >
                 {icon}
               </Link>
             </li>
@@ -108,6 +169,7 @@ export default function Home() {
               <a
                 href="https://uinjkt.ac.id/"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-white hover:text-teal-300 transition-colors"
               >
                 UIN Syarif Hidayatullah Jakarta
@@ -124,6 +186,7 @@ export default function Home() {
               <a
                 href="https://ctftime.org/user/246529"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-white hover:text-teal-300 transition-colors"
               >
                 CTF (Capture The Flag)
@@ -136,6 +199,7 @@ export default function Home() {
           <Link
             href="/CV-Lindan.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             className="font-semibold inline-flex items-end gap-x-2 group/resum hover:text-teal-300 transition-colors"
           >
             View my Résumé
@@ -164,7 +228,7 @@ export default function Home() {
             ))}
           </ul>
         </NewSection>
-        {/* <NewSection id="blogs">
+        <NewSection id="blogs">
           <SectionHeader>Blog</SectionHeader>
           <ul className="text-slate-400 mt-4 flex flex-col gap-y-12 lg:gap-y-2 group/list">
             {blogs.slice(0, 5).map((blog, i) => (
@@ -177,12 +241,13 @@ export default function Home() {
                   summary={blog.summary}
                   date={blog.date}
                   slug={blog.slug}
+                  basePath="/blog"
                 />
               </li>
             ))}
           </ul>
           <Link
-            href="/blogs"
+            href="/blog"
             className="mt-6 font-semibold inline-flex items-end gap-x-2 group/blog hover:text-teal-300 transition-colors"
           >
             View All Posts
@@ -191,7 +256,7 @@ export default function Home() {
               className="group-hover/blog:translate-x-1 group-hover/blog:-translate-y-2 transition-transform"
             />
           </Link>
-        </NewSection> */}
+        </NewSection>
         <NewSection id="skill">
           <SectionHeader>Skill & Interest</SectionHeader>
           <div className="max-w-96 text-sm lg:mt-10">
@@ -209,7 +274,7 @@ export default function Home() {
                     src={`/img/${el.image}`}
                     width={100}
                     height={100}
-                    alt={`Skill Image ${index + 1}`}
+                    alt={`${el.name} logo`}
                     className="object-cover filter grayscale group-hover/skill:grayscale-0 drop-shadow-[0_0_12px_rgba(255,255,255,0.1)] group-hover/skill:drop-shadow-[0_0_16px_rgba(255,255,255,0.2)] transition-all duration-300"
                   />
                 </li>
@@ -265,6 +330,7 @@ export default function Home() {
         </NewSection>
         <SectionFooter />
       </main>
-    </div>
+      </div>
+    </>
   );
 }

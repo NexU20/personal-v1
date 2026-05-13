@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import Glowing from "./components/Glowing";
 import { Analytics } from "@vercel/analytics/react";
+import { siteConfig } from "@/lib/seo";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -13,34 +14,53 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lindan Akbar | Junior Front End Engineer",
-  description:
-    "Lindan Akbar is a Frontend Engineer and CTF Player based in Indonesia. Check out my seamless, pixel-perfect digital experiences and security insights.",
-  keywords: [
-    "Lindan",
-    "Lindan Akbar",
-    "BocahanCiledug",
-    "Lndn",
-    "Frontend Engineer",
-    "Web Developer",
-    "React Developer",
-    "Next.js Developer",
-    "CTF Player",
-    "Cyber Security",
-    "Penetration Testing"
-  ],
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.author}`,
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.author, url: siteConfig.url }],
+  creator: siteConfig.author,
+  publisher: siteConfig.author,
+  category: "portfolio",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Lindan Akbar | Front End Engineer & CTF Player",
-    description: "I craft seamless, pixel-perfect digital experiences that bring accessibility and innovation to the web.",
-    url: "https://lindan.vercel.app",
-    siteName: "Lindan Akbar Portfolio",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: "/",
+    siteName: siteConfig.name,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.author} portfolio preview`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lindan Akbar | Front End Engineer & CTF Player",
-    description: "I craft seamless, pixel-perfect digital experiences.",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
 };
 

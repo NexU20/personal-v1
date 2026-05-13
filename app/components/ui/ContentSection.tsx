@@ -16,7 +16,7 @@ export function FirstSection({
 
 export function SectionHeader({ children }: { children: ReactNode }) {
   return (
-    <div className="bg-gradient-to-r lg:hidden from-slate-900 to-slate-900 via-transparent py-4 bg-opacity-70 backdrop-blur-lg lg:from-transparent lg:to-transparent sticky top-0 z-10">
+    <div className="bg-gradient-to-r from-slate-900 to-slate-900 via-transparent py-4 bg-opacity-70 backdrop-blur-lg lg:from-transparent lg:to-transparent sticky top-0 z-10 lg:sr-only">
       <h2 className="font-semibold">{children}</h2>
     </div>
   );

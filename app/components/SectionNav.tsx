@@ -6,7 +6,7 @@ export default function SectionNav() {
   const [active, setActive] = useState("about");
 
   useEffect(() => {
-    const sections = ["about", "projects", "skill"];
+    const sections = ["about", "projects", "blogs", "skill"];
     
     const observer = new IntersectionObserver(
       (entries) => {
@@ -30,11 +30,11 @@ export default function SectionNav() {
   }, []);
 
   return (
-    <div className="lg:flex flex-col gap-y-2 hidden flex-1">
+    <nav aria-label="Portfolio sections" className="lg:flex flex-col gap-y-2 hidden flex-1">
       <Nav section="About" active={active === "about"} />
       <Nav section="Projects" active={active === "projects"} />
-      {/* <Nav section="Blogs" active={active === "blogs"} /> */}
+      <Nav section="Blogs" active={active === "blogs"} />
       <Nav section="Skill & Interest" active={active === "skill"} />
-    </div>
+    </nav>
   );
 }

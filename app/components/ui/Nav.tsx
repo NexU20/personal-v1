@@ -8,6 +8,7 @@ export default function Nav({
   return (
     <a
       href={`#${section.split(" ")[0].toLowerCase()}`}
+      aria-current={active ? "true" : undefined}
       className="flex items-center gap-x-3 group cursor-pointer w-fit min-h-10 py-2"
     >
       <div
