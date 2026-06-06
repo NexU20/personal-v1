@@ -11,18 +11,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: absoluteUrl("/blogs"),
+      url: absoluteUrl("/blog"),
       lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
     },
   ];
 
   const blogRoutes = blogs.map((blog) => ({
-    url: absoluteUrl(`/blogs/${blog.slug}`),
+    url: absoluteUrl(`/blog/${blog.slug}`),
     lastModified: new Date(blog.date),
-    changeFrequency: "yearly" as const,
-    priority: 0.5,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
   }));
 
   return [...staticRoutes, ...blogRoutes];
