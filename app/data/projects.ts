@@ -1,4 +1,11 @@
-export const projects = [
+export const projects: Projects = [
+  {
+    name: "NusaShield",
+    description: "An OSINT threat intelligence platform for Indonesia's digital finance ecosystem",
+    tools: ["react", "nextjs", "typescript"],
+    link: "https://nusashield.vercel.app/",
+    image: "nusashield.jpg",
+  },
   {
     name: "Twitter Clone",
     description: "Twitter clone built with Next.js and Firebase for learning real-time social app patterns.",
@@ -45,3 +52,15 @@ export const projects = [
     link: "https://notion-lndn-lake.vercel.app",
   },
 ];
+
+type Project = {
+  name: string;
+  description: string;
+  image?: string;
+  tools: string[];
+  link?: string;
+};
+
+type Projects = Array<Project>;
+
+export type {Project, Projects};

@@ -222,7 +222,7 @@ export default function Home() {
                   description={description}
                   image={image}
                   tools={tools}
-                  link={link}
+                  link={link as string}
                 />
               </li>
             ))}
