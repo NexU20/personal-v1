@@ -12,7 +12,7 @@ export interface Experience {
 export const experiences: Experience[] = [
 	{
 		period: "2025 — 2026",
-		title: "Frontend Developer Intern",
+		title: "Frontend Developer",
 		company: "Universitas Islam Negeri Syarif Hidayatullah Jakarta",
 		companyUrl: "https://uinjkt.ac.id/",
 		description:

@@ -171,7 +171,7 @@ export default function Home() {
 								great but are meticulously built for performance and usability.
 							</p>
 							<p className="leading-relaxed">
-								I am currently a student at{" "}
+								Currently studying at{" "}
 								<a
 									href="https://uinjkt.ac.id/"
 									target="_blank"
@@ -180,10 +180,10 @@ export default function Home() {
 								>
 									UIN Syarif Hidayatullah Jakarta
 								</a>
-								. During my studies, I developed an application designed to
-								monitor academic activities for parents. In addition, I
-								specialize in creating web interfaces that align precisely with
-								provided designs, ensuring a flawless, pixel-perfect experience.
+								, where I also led frontend development, building the
+								faculty&apos;s Outcome-Based Education (OBE) system from the
+								ground up and maintaining mission-critical service applications
+								used across the institution.
 							</p>
 							<p>
 								Beyond web development, I have a strong interest in{" "}
