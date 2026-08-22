@@ -2,6 +2,7 @@ import { GithubIcon, InstagramIcon, Linkedin } from "lucide-react";
 import Link from "next/link";
 import ProjectShow from "./components/ProjectShow";
 import BlogShow from "./components/BlogShow";
+import ExperienceShow from "./components/ExperienceShow";
 import SectionNav from "./components/SectionNav";
 import { ArrowUpRight } from "lucide-react";
 import {
@@ -14,6 +15,7 @@ import Image from "next/image";
 import { projects } from "./data/projects";
 import { absoluteUrl, siteConfig } from "@/lib/seo";
 import { blogs } from "./data/blogs";
+import { experiences } from "./data/experiences";
 
 const links = [
 	{
@@ -200,11 +202,24 @@ export default function Home() {
 								deepening my knowledge, indulging in gaming, and watching films.
 							</p>
 						</div>
+					</FirstSection>
+					<NewSection id="experience">
+						<SectionHeader>Experience</SectionHeader>
+						<ul className="text-slate-400 mt-4 flex flex-col gap-y-12 lg:gap-y-2 group/list">
+							{experiences.map((exp, i) => (
+								<li
+									key={i}
+									className="lg:group-hover/list:opacity-50 transition-opacity lg:hover:!opacity-100"
+								>
+									<ExperienceShow {...exp} />
+								</li>
+							))}
+						</ul>
 						<Link
 							href="/Lndn_resume.pdf"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="font-semibold inline-flex items-end gap-x-2 group/resum hover:text-teal-300 transition-colors"
+							className="mt-6 font-semibold inline-flex items-end gap-x-2 group/resum hover:text-teal-300 transition-colors"
 						>
 							View my Résumé
 							<ArrowUpRight
@@ -212,7 +227,7 @@ export default function Home() {
 								className="group-hover/resum:translate-x-1 group-hover/resum:-translate-y-2 transition-transform"
 							/>
 						</Link>
-					</FirstSection>
+					</NewSection>
 					<NewSection id="projects">
 						<SectionHeader>My Projects</SectionHeader>
 						<ul className="text-slate-400 mt-4 flex flex-col gap-y-12 lg:gap-y-2 group/list">
