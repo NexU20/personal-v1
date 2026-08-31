@@ -6,6 +6,17 @@ export const projects: Projects = [
 		tools: ["php", "laravel", "mysql"],
 		image: "obe.jpg",
 		link: "https://layanan-obe.uinjakarta.id/",
+		year: 2026,
+		madeAt: "UIN Jakarta",
+	},
+	{
+		name: "LedgerLens",
+		description:
+			" A recursive token tracking application providing end-to-end visibility across wallets, DEXs, and crypto mixers",
+		image: "ledgerlens.png",
+		tools: ["python", "solana"],
+		year: 2026,
+		link: "https://github.com/NexU20/LedgerLens",
 	},
 	{
 		name: "NusaShield",
@@ -14,6 +25,7 @@ export const projects: Projects = [
 		tools: ["react", "nextjs", "typescript"],
 		link: "https://nusashield.vercel.app/",
 		image: "nusashield.jpg",
+		year: 2026,
 	},
 	{
 		name: "Twitter Clone",
@@ -22,6 +34,7 @@ export const projects: Projects = [
 		image: "twitter.PNG",
 		tools: ["react", "nextjs", "firebase"],
 		link: "https://github.com/NexU20/twitter-clone",
+		year: 2023,
 	},
 	{
 		name: "AmaTI",
@@ -30,6 +43,8 @@ export const projects: Projects = [
 		image: "amati.PNG",
 		tools: ["react", "tailwindcss", "mysql", "nextjs"],
 		link: "https://github.com/NexU20/AmaTI/tree/amati-withbackend",
+		year: 2024,
+		madeAt: "UIN Jakarta",
 	},
 	{
 		name: "Reaksi",
@@ -38,6 +53,7 @@ export const projects: Projects = [
 		image: "reaksi.PNG",
 		tools: ["javascript", "nodejs"],
 		link: "https://github.com/NexU20/reaksi/",
+		year: 2024,
 	},
 	{
 		name: "Portfolio",
@@ -45,6 +61,7 @@ export const projects: Projects = [
 		image: "porto.PNG",
 		tools: ["react", "nextjs", "styled components"],
 		link: "",
+		year: 2023,
 	},
 	{
 		name: "Notion - Clone",
@@ -53,6 +70,7 @@ export const projects: Projects = [
 		image: "notion.PNG",
 		tools: ["react", "nextjs", "tailwindcss", "clerk", "MongoDB"],
 		link: "https://notion-lndn-lake.vercel.app",
+		year: 2023,
 	},
 ];
 
@@ -62,6 +80,8 @@ type Project = {
 	image?: string;
 	tools: string[];
 	link?: string;
+	year: number;
+	madeAt?: string;
 };
 
 type Projects = Array<Project>;

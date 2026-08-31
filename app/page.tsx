@@ -231,21 +231,35 @@ export default function Home() {
 					<NewSection id="projects">
 						<SectionHeader>My Projects</SectionHeader>
 						<ul className="text-slate-400 mt-4 flex flex-col gap-y-12 lg:gap-y-2 group/list">
-							{projects.map(({ name, description, image, tools, link }, i) => (
-								<li
-									key={i}
-									className="lg:group-hover/list:opacity-50 transition-opacity lg:hover:!opacity-100"
-								>
-									<ProjectShow
-										name={name}
-										description={description}
-										image={image}
-										tools={tools}
-										link={link as string}
-									/>
-								</li>
-							))}
+							{projects
+								.slice(0, 5)
+								.map(({ name, description, image, tools, link }, i) => (
+									<li
+										key={i}
+										className="lg:group-hover/list:opacity-50 transition-opacity lg:hover:!opacity-100"
+									>
+										<ProjectShow
+											name={name}
+											description={description}
+											image={image}
+											tools={tools}
+											link={link}
+										/>
+									</li>
+								))}
 						</ul>
+						{projects.length > 5 && (
+							<Link
+								href="/projects"
+								className="mt-6 font-semibold inline-flex items-end gap-x-2 group/proj hover:text-teal-300 transition-colors"
+							>
+								View All Projects
+								<ArrowUpRight
+									size={16}
+									className="group-hover/proj:translate-x-1 group-hover/proj:-translate-y-2 transition-transform"
+								/>
+							</Link>
+						)}
 					</NewSection>
 					<NewSection id="blogs">
 						<SectionHeader>Blog</SectionHeader>
@@ -276,7 +290,7 @@ export default function Home() {
 							/>
 						</Link>
 					</NewSection>
-					<NewSection id="skill">
+					<NewSection id="skills">
 						<SectionHeader>Skill & Interest</SectionHeader>
 						<div className="max-w-96 text-sm lg:mt-10">
 							<h3>Technical: </h3>

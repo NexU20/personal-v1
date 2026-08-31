@@ -15,9 +15,9 @@ export default function ProjectShow({
   description: string;
   image?: string;
   tools?: string[];
-  link: string;
+  link?: string;
 }) {
-  const isExternal = link.startsWith("http");
+  const isExternal = link?.startsWith("http");
 
   return (
     <GlowCard className="projects flex flex-col lg:-translate-x-4 lg:cursor-pointer lg:group/item sm:flex-row gap-4 transition-color transition-opacity lg:hover:bg-blue-300 lg:py-5 rounded-md lg:px-4 hover:backdrop-blur-3xl lg:hover:bg-opacity-10">
