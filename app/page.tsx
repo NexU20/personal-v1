@@ -292,27 +292,71 @@ export default function Home() {
 					</NewSection>
 					<NewSection id="skills">
 						<SectionHeader>Skill & Interest</SectionHeader>
-						<div className="max-w-96 text-sm lg:mt-10">
-							<h3>Technical: </h3>
-							<ul className="w-full flex flex-wrap gap-4 justify-center mt-2">
-								{skills.map((el, index) => (
-									<li
+						<div className="text-sm lg:mt-10">
+						<h3>Technical: </h3>
+
+						{/* Mobile — static wrapped chips */}
+						<div className="flex flex-wrap gap-2 mt-3 lg:hidden">
+							{skills.map((el, index) => (
+								<div
+									key={index}
+									className="flex items-center gap-x-2 px-3 py-2 rounded-full border border-slate-700/50 bg-slate-800/50 backdrop-blur-sm"
+								>
+									<Image
+										src={`/img/${el.image}`}
+										width={20}
+										height={20}
+										alt={`${el.name} logo`}
+										className="object-contain size-5"
+									/>
+									<span className="text-xs text-slate-300 font-medium">
+										{el.name}
+									</span>
+								</div>
+							))}
+						</div>
+
+						{/* Desktop — marquee */}
+						<div className="marquee-container marquee-mask mt-3 -mx-12 overflow-hidden hidden lg:block">
+							<div className="flex marquee-track w-max gap-3 py-1">
+								{[...skills, ...skills, ...skills].map((el, index) => (
+									<div
 										key={index}
-										className="relative flex cursor-pointer p-2 items-center justify-center size-16 md:size-20 opacity-60 hover:opacity-100 transition-all duration-300 group/skill"
+										className="flex items-center gap-x-2.5 px-4 py-2.5 rounded-full border border-slate-700/50 bg-slate-800/50 backdrop-blur-sm hover:border-teal-500/50 hover:bg-slate-700/50 transition-all duration-300 shrink-0"
 									>
-										<div className="absolute -top-10 left-1/2 -translate-x-1/2 lg:px-3 lg:py-1.5 px-2 py-1 bg-slate-800/90 backdrop-blur-md border border-slate-700 text-white text-xs whitespace-nowrap rounded-md opacity-0 translate-y-2 group-hover/skill:opacity-100 group-hover/skill:translate-y-0 transition-all duration-300 pointer-events-none z-10">
-											{el.name}
-										</div>
 										<Image
 											src={`/img/${el.image}`}
-											width={100}
-											height={100}
+											width={24}
+											height={24}
 											alt={`${el.name} logo`}
-											className="object-cover filter grayscale group-hover/skill:grayscale-0 drop-shadow-[0_0_12px_rgba(255,255,255,0.1)] group-hover/skill:drop-shadow-[0_0_16px_rgba(255,255,255,0.2)] transition-all duration-300"
+											className="object-contain size-6"
 										/>
-									</li>
+										<span className="text-sm text-slate-300 font-medium whitespace-nowrap">
+											{el.name}
+										</span>
+									</div>
 								))}
-							</ul>
+							</div>
+							<div className="flex marquee-track-reverse w-max gap-3 py-1 mt-2">
+								{[...skills, ...skills, ...skills].map((el, index) => (
+									<div
+										key={index}
+										className="flex items-center gap-x-2.5 px-4 py-2.5 rounded-full border border-slate-700/50 bg-slate-800/50 backdrop-blur-sm hover:border-teal-500/50 hover:bg-slate-700/50 transition-all duration-300 shrink-0"
+									>
+										<Image
+											src={`/img/${el.image}`}
+											width={24}
+											height={24}
+											alt={`${el.name} logo`}
+											className="object-contain size-6"
+										/>
+										<span className="text-sm text-slate-300 font-medium whitespace-nowrap">
+											{el.name}
+										</span>
+									</div>
+								))}
+							</div>
+						</div>
 						</div>
 						<div className="text-sm mt-4 lg:mt-6">
 							<h3>Interpersonal: </h3>
